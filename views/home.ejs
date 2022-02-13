@@ -1,0 +1,18 @@
+<%- include("partials/header") -%>
+
+<h1>Home</h1>
+<p><%= homePageContent%></p>
+
+<% postLog.forEach(function(post){%>
+<h1><%=post.title%></h1>
+
+<%let fullContent = post.content;%>
+<%let postPreview = fullContent.substring(1, 140) + ". . .";%>
+
+<p>
+  <%=postPreview%>
+<a href="/posts/<%=post.title%>">Read more</a>
+</p>
+<%});%>
+
+<%- include("partials/footer") -%>
