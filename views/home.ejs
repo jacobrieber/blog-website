@@ -1,18 +1,24 @@
-<%- include("partials/header") -%>
+<div class="pageContainer">
 
-<h1>Home</h1>
-<p><%= homePageContent%></p>
+  <%- include("partials/header") -%>
 
-<% postLog.forEach(function(post){%>
-<h1><%=post.title%></h1>
+  <!-- Section header -->
+  <h1>Home</h1>
+  <p><%= homePageContent%></p>
 
-<%let fullContent = post.content;%>
-<%let postPreview = fullContent.substring(1, 140) + ". . .";%>
+  <!-- Visualize running list of posts -->
+  <% postLog.forEach(function(post){%>
+  <h1><%=post.title%></h1>
 
-<p>
-  <%=postPreview%>
-<a href="/posts/<%=post.title%>">Read more</a>
-</p>
-<%});%>
+  <%let fullContent = post.content;%>
+  <%let postPreview = fullContent.substring(0, 140) + ". . .";%>
 
-<%- include("partials/footer") -%>
+  <p>
+    <%=postPreview%>
+    <a href="/posts/<%=post._id%>">Read more</a>
+  </p>
+  <%});%>
+
+  <%- include("partials/footer") -%>
+
+</div>
