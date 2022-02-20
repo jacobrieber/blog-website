@@ -110,6 +110,11 @@ app.post("/compose", function(req, res) {
   res.redirect("/");
 });
 
-app.listen(3500, function() {
-  console.log("Server started on port 3500");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3500;
+}
+
+app.listen(port, function() {
+  console.log("Server has started");
 });
